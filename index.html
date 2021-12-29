@@ -1,48 +1,66 @@
 ﻿<!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        　
+        <meta name="viewport" content="minimal-ui" />
+        <title>HTML5仿Apple Watch时钟动画DEMO演示</title>
 
-<head>
+        <link
+            rel="stylesheet"
+            href="css/style.css"
+            media="screen"
+            type="text/css"
+        />
+    </head>
 
-  <meta charset="UTF-8">
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-　<meta name="viewport" content="minimal-ui">
-  <title>HTML5仿Apple Watch时钟动画DEMO演示</title>
-
-    <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
-
-</head>
-
-<body>
-
-  <!--
+    <body>
+        <!--
 Recreating Apple Watch's Utility face <http://www.apple.com/watch/design/> in HTML+CSS+JS
 -->
 
-<div class="fill">
-  <div class="reference"></div>
-  <div class="clock" id="utility-clock">
-    <div class="centre">
-      <div class="dynamic"></div>
-      <div class="expand round circle-1"></div>
-      <div class="anchor hour">
-        <div class="element thin-hand"></div>
-        <div class="element fat-hand"></div>
-      </div>
-      <div class="anchor minute">
-        <div class="element thin-hand"></div>
-        <div class="element fat-hand minute-hand"></div>
-      </div>
-      <div class="anchor second">
-        <div class="element second-hand"></div>
-      </div>
-      <div class="expand round circle-2"></div>
-      <div class="expand round circle-3"></div>
-    </div>
-  </div>
-</div>
+        <div class="fill">
+            <div class="reference"></div>
+            <div class="clock" id="utility-clock">
+                <div class="centre">
+                    <div class="dynamic"></div>
+                    <div class="expand round circle-1"></div>
+                    <div class="anchor hour">
+                        <div class="element thin-hand"></div>
+                        <div class="element fat-hand"></div>
+                    </div>
+                    <div class="anchor minute">
+                        <div class="element thin-hand"></div>
+                        <div class="element fat-hand minute-hand"></div>
+                    </div>
+                    <div class="anchor second">
+                        <div class="element second-hand"></div>
+                    </div>
+                    <div class="expand round circle-2"></div>
+                    <div class="expand round circle-3"></div>
+                </div>
+            </div>
+        </div>
 
-  <script src="js/index.js"></script>
+        <script src="js/index.js"></script>
+        <script>
+            window.onload = function () {
+                scroll();
+            };
 
-</body>
-
+            function scroll() {
+                if (
+                    document.documentElement.scrollHeight <=
+                    document.documentElement.clientHeight
+                ) {
+                    bodyTag = document.getElementsByTagName("body")[0];
+                    bodyTag.style.height =
+                        (document.documentElement.clientWidth / screen.width) *
+                            screen.height +
+                        "px";
+                }
+            }
+        </script>
+    </body>
 </html>
